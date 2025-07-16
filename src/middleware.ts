@@ -15,7 +15,7 @@ export async function middleware(req: NextRequest) {
   const token = authHeader?.split(" ")[1] || cookieToken;
 
   // public page routes (now with locale)
-  const publicRoutes = ["/", "/en", "/th"];
+  const publicRoutes = ["/", "/en", "/th", "/en/login"];
   const isPublicRoute = publicRoutes.includes(req.nextUrl.pathname);
 
   // public api routes
