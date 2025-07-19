@@ -3,6 +3,7 @@
 import cn from "@/lib/helpers/cn";
 import type { ClubItem } from "@/lib/types/club";
 import { StyleableFC } from "@/lib/types/misc";
+import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
 const FilteredResult: StyleableFC<{
@@ -33,9 +34,12 @@ const FilteredResult: StyleableFC<{
         (g) =>
           g.items.length > 0 && (
             <div key={g.key} className={cn("mb-6", className)} style={style}>
-              <p className="type-title-large text-red mb-4 text-center font-bold">
+              <motion.h3
+                layout="position"
+                className="type-title-large text-red mb-4 text-center font-bold"
+              >
                 {t(`List.title.${g.key}`)}
-              </p>
+              </motion.h3>
               {g.items.map((item, i) => (
                 <div key={i}>{renderItem(item)}</div>
               ))}

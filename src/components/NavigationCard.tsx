@@ -30,7 +30,7 @@ const NavigationCard: StyleableFC<{
         )}
         style={style}
       >
-        <div className="relative text-center text-balance">
+        <div className="relative flex flex-col items-center text-center text-balance">
           <h2 className="type-chinese-medium mb-3">{title}</h2>
           <p
             className={cn(

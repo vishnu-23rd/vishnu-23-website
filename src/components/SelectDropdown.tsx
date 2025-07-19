@@ -53,7 +53,7 @@ const SelectDropdown: StyleableFC<{
             {items.map((item, i) => (
               <Interactive
                 key={i}
-                className="type-title-medium flex h-11 w-full items-center bg-white px-4 transition-colors"
+                className="type-body-large flex h-11 w-full items-center bg-white px-4 transition-colors"
                 onClick={() => {
                   onChange(item);
                   setOpen(false);

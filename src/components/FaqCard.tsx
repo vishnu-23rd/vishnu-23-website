@@ -36,7 +36,7 @@ const FaqCard: StyleableFC<{ questions: FaqQuestion }> = ({
         <Interactive
           title={t(isOpen ? "action.less" : "action.more")}
           onClick={() => setIsOpen((isOpen) => !isOpen)}
-          className="text-red px-4"
+          className="text-red shrink-0 px-4"
         >
           <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}
