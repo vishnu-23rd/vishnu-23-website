@@ -1,7 +1,6 @@
 "use client";
 
 import Interactive from "@/components/Interactive";
-import cn from "@/lib/helpers/cn";
 import { ClubItem } from "@/lib/types/club";
 import { StyleableFC } from "@/lib/types/misc";
 import Image from "next/image";
@@ -13,19 +12,21 @@ const ClubListItem: StyleableFC<{
 }> = ({ clubList, onClick, className, style }) => {
   const t = useTranslations("Map");
   return (
-    <div className={cn("space-y-4", className)} style={style}>
-      <p className="type-title-large text-red text-center font-bold">
+    <div className={className} style={style}>
+      <p className="type-title-large text-red mb-1 text-center font-bold">
         {t("Building.list")}
       </p>
       {clubList.map((club, index) => (
         <Interactive
           key={index}
-          className="type-title-medium flex w-full cursor-pointer items-center gap-2.5 px-2"
+          className="type-title-medium flex w-full cursor-pointer items-center gap-2.5 px-2 py-1"
           onClick={() => {
             onClick(club);
           }}
         >
-          <p className="text-red w-5">{club.boothPosition?.position}</p>
+          <p className="text-red min-w-5 text-end">
+            {club.boothPosition?.position}
+          </p>
           <Image
             src={`/clubs-logo/${club.logo}`}
             alt={club.name}
@@ -33,7 +34,7 @@ const ClubListItem: StyleableFC<{
             height={36}
             className="bg-white"
           />
-          <p className="w-full text-left text-black">{club.name}</p>
+          <p className="grow text-start text-black">{club.name}</p>
         </Interactive>
       ))}
     </div>

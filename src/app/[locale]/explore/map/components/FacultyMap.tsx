@@ -32,7 +32,7 @@ const buildings = [
 const FacultyMap: StyleableFC = ({ className, style }) => {
   const router = useRouter();
   const locale = useLocale();
-  const t = useTranslations("Map");
+  const t = useTranslations("Map.Faculty");
 
   const [selected, setSelected] = useState<string | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -57,7 +57,7 @@ const FacultyMap: StyleableFC = ({ className, style }) => {
       {isTransitioning && <div className="fixed inset-0 z-10 bg-black/30" />}
 
       <figure className="relative">
-        <Image src={facultyMap} alt={t("Faculty.alt")} priority />
+        <Image src={facultyMap} alt={t("alt")} priority />
         {buildings.map((building) => (
           <button
             key={building.key}
@@ -73,10 +73,10 @@ const FacultyMap: StyleableFC = ({ className, style }) => {
 
       <div className="justify-left text-red flex w-full items-center gap-2.5 pb-3">
         <Icon name="touch_app" size={24} />
-        <p className="type-title-medium">{t("Faculty.instruction")}</p>
+        <p className="type-title-medium text-balance">{t("instruction")}</p>
       </div>
 
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex flex-wrap items-center justify-center gap-2">
         {buildings.map((building) => (
           <Button
             key={building.key}
@@ -85,7 +85,7 @@ const FacultyMap: StyleableFC = ({ className, style }) => {
             className="type-title-medium"
             onClick={() => handleClick(building.key)}
           >
-            {t(`Faculty.building.${building.key}`)}
+            {t(`building.${building.key}`)}
           </Button>
         ))}
       </div>
